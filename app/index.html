@@ -1,0 +1,54 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Build web applications from any device.">
+    <meta name="theme-color" content="#bbb">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
+    <title>Game | Onyx</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" href="/cdn/png/android-chrome-192x192.png">
+    <link rel="apple-touch-startup-image" href="/cdn/png/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+    <script src="/cdn/js/firebase-app.min.js"></script>
+    <script src="/cdn/js/firebase-auth.min.js"></script>
+    <script id="script-touch-emulator" src="/cdn/js/touch.emulator.js"></script>
+    <script id="script-vanilla" src="/cdn/js/vanilla.js"></script>
+    <script id="script-global" src="/cdn/js/global.js"></script>
+    <script id="script-load" src="/cdn/js/load.js"></script>
+</head>
+
+<body data-theme="system">
+
+    <header class="bg-gray fixed height-50px width-100pc z-index-3">
+        <section class="flex height-50px width-100pc">
+            <ico class="bg-black border-radius-50pc height-30px margin-10px width-30px"><n class="gg-dollar"></n></ico>
+            <text class="margin-right uppercase">Miner</text>
+            <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/mine/"><n class="gg-server"></n></user> 
+            <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/earn/"><n class="gg-credit-card"></n></user> 
+            <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/config/"><n class="gg-options"></n></user> 
+        </section>
+    </header>
+
+    <main data-height="100vh" data-width="100%">
+    </main>
+
+    <script id="init">
+    Styles([
+        {link: "/index.css"},
+        {link: "/cdn/css/boiler.css"},
+        {link: "/cdn/css/gg.css"},
+        {link: "/cdn/css/modal.css"},
+        {link: "/cdn/css/theme.css"}
+    ]);
+    Scripts([
+        {link: "/cdn/js/api.js"},
+        {link: "/cdn/js/vanilla.js", cdn: "/cdn/js/vanilla.js"},
+        {link: "/cdn/js/mvc.js"},
+        {link: "/cdn/js/auth.js"},
+        {link: "/cdn/js/modal.js"},
+        {link: "/cdn/js/on.js"},
+        {link: "/cdn/js/router.js"},
+        {link: "/cdn/js/touch.js"},
+        {link: "/index.js"}
+    ]);
+    </script>
+
+</body>
