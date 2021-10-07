@@ -9,7 +9,6 @@
     <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
     <script src="/cdn/js/firebase-app.min.js"></script>
     <script src="/cdn/js/firebase-auth.min.js"></script>
-    <script id="script-touch-emulator" src="/cdn/js/touch.emulator.js"></script>
     <script id="script-vanilla" src="/cdn/js/vanilla.js"></script>
     <script id="script-global" src="/cdn/js/global.js"></script>
     <script id="script-load" src="/cdn/js/load.js"></script>
@@ -19,8 +18,15 @@
 
     <header class="bg-gray fixed height-50px width-100pc z-index-3">
         <section class="flex height-50px width-100pc">
-            <ico class="bg-black border-radius-50pc height-30px margin-10px width-30px"><n class="gg-dollar"></n></ico>
-            <text class="margin-right uppercase">Miner</text>
+            <box class="flex margin-right" data-href="/">
+                <section>
+                    <ico class="bg-black border-radius-50pc height-30px margin-10px width-30px"><n class="gg-dollar"></n></ico>
+                    <text class="bolder uppercase" data-page="/">Miner</text>
+                    <text class="bolder uppercase" data-page="/mine/">Mine</text>
+                    <text class="bolder uppercase" data-page="/earn/">Earn</text>
+                    <text class="bolder uppercase" data-page="/config/">Config</text>
+                </section>
+            </box>
             <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/mine/"><n class="gg-server"></n></user> 
             <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/earn/"><n class="gg-credit-card"></n></user> 
             <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/config/"><n class="gg-options"></n></user> 
@@ -28,6 +34,18 @@
     </header>
 
     <main data-height="100vh" data-width="100%">
+        <page data-page="/mine/" data-path="/mine/"><!--
+            --><section></section><!--
+            --><section></section?><!--
+        --></page><!--
+        --><page data-page="/earn/" data-path="/earn/"><!--
+            --><section></section><!--
+            --><section></section?><!--
+        --></page><!--
+        --><page data-page="/config/" data-path="/config/"><!--
+            --><section></section><!--
+            --><section></section?><!--
+        --></page>
     </main>
 
     <script id="init">
@@ -35,18 +53,13 @@
         {link: "/index.css"},
         {link: "/cdn/css/boiler.css"},
         {link: "/cdn/css/gg.css"},
-        {link: "/cdn/css/modal.css"},
         {link: "/cdn/css/theme.css"}
     ]);
     Scripts([
-        {link: "/cdn/js/api.js"},
-        {link: "/cdn/js/vanilla.js", cdn: "/cdn/js/vanilla.js"},
         {link: "/cdn/js/mvc.js"},
         {link: "/cdn/js/auth.js"},
-        {link: "/cdn/js/modal.js"},
         {link: "/cdn/js/on.js"},
         {link: "/cdn/js/router.js"},
-        {link: "/cdn/js/touch.js"},
         {link: "/index.js"}
     ]);
     </script>

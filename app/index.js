@@ -14,8 +14,7 @@ window.onload = () => {
         window.cdn = 'https://cdn.'+app+'.'+tld()+'/file/mzncdn';
         window.dom = {
           "body": document.body,
-          "desktop": byId("desktop"),
-          "camera": document.find('camera')
+          "desktop": byId("desktop")
         };
 
         firebase.initializeApp(auth.config);
@@ -23,7 +22,7 @@ window.onload = () => {
             auth.change(user).then(goto => goto.router());
         });
 
-        //dom.body.onclick = event => on.touch.tap(event,'tap');
+        dom.body.onclick = event => on.touch.tap(event,'tap');
 
         //byId('bar').onfocus = event => on.focus.search(event);
 
