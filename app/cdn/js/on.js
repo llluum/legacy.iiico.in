@@ -304,8 +304,9 @@ window.on['touch']["tap"] = async(event) => {
                 var uid = Crypto.uid.create(starred);
                 var u = 0; do {
                     var num = uid[u];
-                    var len = num.toString().length; 
-                    console.log(task,{num,len});
+                    var str = num.toString();
+                    var sum = num % 9 || 9;
+                    console.log(task,{num,sum});
                 u++; } while(u < uid.length);
             }
             if(power.classList.contains('on')) {
