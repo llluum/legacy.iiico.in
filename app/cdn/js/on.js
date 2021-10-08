@@ -301,13 +301,16 @@ window.on['touch']["tap"] = async(event) => {
                 var stars = byId('stars');
                 var starred = stars.all('.starred');
                 var task = Crypto.uid.create(1)[0];
-                var uid = Crypto.uid.create(starred);
-                var u = 0; do {
+                var uid = Crypto.uid.create(starred.length+2);
+                var u = 0, arr = []; do {
                     var num = uid[u];
                     var str = num.toString();
                     var sum = num % 9 || 9;
+                    arr[u] = sum;
                     console.log(task,{num,sum});
                 u++; } while(u < uid.length);
+                arr = parseInt(arr.join(""));
+                console.log(task,{arr});
             }
             if(power.classList.contains('on')) {
                 var stars = byId('stars');
