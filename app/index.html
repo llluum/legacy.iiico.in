@@ -3,7 +3,7 @@
     <meta name="description" content="Build web applications from any device.">
     <meta name="theme-color" content="#bbb">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
-    <title>Game | Onyx</title>
+    <title>Miner | Onyx</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png" href="/cdn/png/android-chrome-192x192.png">
     <link rel="apple-touch-startup-image" href="/cdn/png/android-chrome-512x512.png">
     <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
@@ -35,18 +35,37 @@
 
     <main data-height="100vh" data-width="100%">
         <page data-page="/mine/" data-path="/mine/"><!--
-            --><header class="bg-gray flex height-50px padding-top-50px stars width-320px"><!--
-                --><ico class="width-50px height-50px bg-lightgray margin-x-10px"><n class="ico-star"></n></ico><!--
-                --><ico class="width-50px height-50px bg-lightgray"><n class="ico-star"></n></ico><!--
-                --><ico class="width-50px height-50px bg-lightgray"><n class="ico-star"></n></ico><!--
-                --><ico class="width-50px height-50px bg-lightgray"><n class="ico-star"></n></ico><!--
-                --><ico class="width-50px height-50px bg-lightgray"><n class="ico-star"></n></ico><!--
-                --><ico class="width-50px height-50px bg-lightgray"><n class="ico-star"></n></ico><!--
-                --><ico class="width-50px height-50px bg-lightgray"><n class="ico-star"></n></ico><!--
+            --><header class="bg-gray height-50px mobile-margin-x-auto padding-top-50px"><!--
+                --><section class="flex height-50px invert" id="stars"><!--
+                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star starred" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                --></section><!--
+                --><section class="margin-top-50px"><!--
+                    --><div class="generate" id="miner-start">Start</div><!--
+                    --><div class="generate" id="miner-stop">Stop</div><!--
+                --></section><!--
+                --><section><!--
+                    --><div><text>0</text></div><!--
+                    --><div><text>0</text></div><!--
+                    --><div><text>0</text></div><!--
+                    --><div><text>0</text></div><!--
+                    --><div><text>0</text></div><!--
+                    --><div><text>0</text></div><!--
+                    --><div><text>0</text></div><!--
+                --></section><!--
             --></header><!--
-            --><section><!--
-                
-            --></section?><!--
+            --><footer><!--
+                --><section class="flex height-50px hide"><!--
+                    --><div class="margin-right">Logger</div><!--
+                    --><ico><n class="gg-software-download"></n></div><!--
+                    --><ico><n class="gg-software-upload"></n></div><!--
+                --></section><!--
+            --></footer><!--
         --></page><!--
         --><page data-page="/earn/" data-path="/earn/"><!--
             --><section></section><!--

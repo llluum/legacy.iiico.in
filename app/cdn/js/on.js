@@ -301,11 +301,43 @@ window.on['touch']["tap"] = async(event) => {
       $('.block').removeClass('focus');
     }
 
-    var id = target.closest("[id]");
-    if(id) {
+    el = target.closest("[id]");
+    if(el) {
+        var id = el.id;
+        if(id.split('-')[0] === "miner") {
+            if(id === "miner-start") {
+                var stars = byId('stars');
+                var starred = stars.all('.starred');
+                var uid = Crypto.uid.create(starred);
+                console.log(uid);
+            }
+            if(id === "miner-stop") {
+                var stars = byId('stars');
+                var starred = stars.all('.starred');
+            }
+        }        
+        if(id === "stars") {
+            var ico = target.closest('ico');
+            if(ico) {
+                var stars = byId('stars');
+                var icos = stars.all('ico');
+                var index = ico.index();
+                var power = index + 1;                
+                var g = 1; do {
+                    var star = icos[g];
+                    if(g < power) {
+                        star.firstElementChild.classList.add('starred');
+                    } else {                        
+                        star.firstElementChild.classList.remove('starred');
+                    }
+                    console.log({g,star});
+                g++; } while(g < icos.length);
+                console.log({uid});               
+            }
+        }
     }
 
-    var el = target.closest('[data-spriii]')
+    el = target.closest('[data-spriii]')
     if(el) {
       var type = el.dataset.spriii;
       if(type === "llipsis") {
