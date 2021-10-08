@@ -193,38 +193,8 @@ window.on['touch']["press"] = async(event) =>  {
       }
     }
 
-    el = target.closest('body.editor .focus');
-    $('.jiggle').removeClass('jiggle');
-    if(el) {
-      //window.parent.modal.confirm("Enable sort mode?", ["Yes", "No"], bool => {
-        //if(bool) {
-          var win = window;
-          var body = target.closest('body');
-          var focused = $('.focus')
-          var focus = focused[focused.length-1];
-          console.log(74,{focused,focus});
-          focus.classList.add('jiggle');
+    
 
-
-          var sort = body.all('blocks block');
-          for (var s = 0; s < sort.length; s++) {
-            new win.Sortable(sort[s], { group: "block", animation: 150, ghostClass: 'sortable-ghost', fallbackOnBody: true, swapThreshold: 0.65 })
-          }
-
-          var sort = body.all('block > section');
-          for (var s = 0; s < sort.length; s++) {
-            new win.Sortable(sort[s], { group: "card", animation: 150, ghostClass: 'sortable-ghost', fallbackOnBody: true, swapThreshold: 0.65 })
-          }
-
-          var sort = body.all('card group');
-          for (var s = 0; s < sort.length; s++) {
-            new win.Sortable(sort[s], { animation: 150, ghostClass: 'sortable-ghost', fallbackOnBody: true, swapThreshold: 0.65 })
-          }
-        //}
-      //});
-    }
-
-    spriii.llips.is(target);
 },
 
 window.spriii = {
@@ -311,6 +281,7 @@ window.on['touch']["tap"] = async(event) => {
                 u++; } while(u < uid.length);
                 arr = parseInt(arr.join(""));
                 console.log(task,{arr});
+                byId('calculation').textContent = arr;
             }
             if(power.classList.contains('on')) {
                 var stars = byId('stars');
