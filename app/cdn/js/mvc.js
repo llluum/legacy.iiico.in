@@ -5,7 +5,7 @@ window.mvc.m = () => {
 window.mvc.v = function(route) {
   return new Promise(async function (resolve, reject) {
 
-    console.log(3,{route});
+    //console.log(3,{route});
     var path = route.path;
     var get = route ? route.GOT : rout.ed.dir(dom.body.dataset.path);
     var root = get[0];

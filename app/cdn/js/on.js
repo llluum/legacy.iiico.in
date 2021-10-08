@@ -277,8 +277,8 @@ window.spriii = {
 };
 
 window.on['touch']["tap"] = async(event) => {
-    console.log("tap",{iframe:self===top},event.type);
-    var target = event.target; console.log('tap',{event,target});
+    //console.log("tap",{iframe:self===top},event.type);
+    var el, target = event.target; //console.log('tap',{event,target});
 
     //RESET
     $('.jiggle').removeClass('jiggle');
@@ -292,29 +292,27 @@ window.on['touch']["tap"] = async(event) => {
     }
 
     //EVENTS
-    var el = target.closest(".block");
-    if(el) {
-      $('.block').removeClass('focus');
-      $(target.closest('.block')).addClass('focus');
-    }
-    else {
-      $('.block').removeClass('focus');
-    }
-
     el = target.closest("[id]");
     if(el) {
         var id = el.id;
         if(id.split('-')[0] === "miner") {
-            if(id === "miner-start") {
+            var power = el.find('ico n');
+            if(power.classList.contains('off')) {
                 var stars = byId('stars');
                 var starred = stars.all('.starred');
+                var task = Crypto.uid.create(1)[0];
                 var uid = Crypto.uid.create(starred);
-                console.log(uid);
+                var u = 0; do {
+                    var num = uid[u];
+                    var len = num.toString().length; 
+                    console.log(task,{num,len});
+                u++; } while(u < uid.length);
             }
-            if(id === "miner-stop") {
+            if(power.classList.contains('on')) {
                 var stars = byId('stars');
                 var starred = stars.all('.starred');
             }
+            $(power).toggleClass('on').toggleClass('off');
         }        
         if(id === "stars") {
             var ico = target.closest('ico');
@@ -330,78 +328,14 @@ window.on['touch']["tap"] = async(event) => {
                     } else {                        
                         star.firstElementChild.classList.remove('starred');
                     }
-                    console.log({g,star});
-                g++; } while(g < icos.length);
-                console.log({uid});               
+                g++; } while(g < icos.length);       
             }
         }
-    }
-
-    el = target.closest('[data-spriii]')
-    if(el) {
-      var type = el.dataset.spriii;
-      if(type === "llipsis") {
-        spriii.llips.is(el);
-      }
     }
 
     var el = target.closest('[data-window]')
     if(el) {
       window.open(el.dataset.window, '_blank').focus();
-    }
-
-    var elem = target.closest('[data-hints]');
-    if(elem) {
-      var cookie = elem.dataset.hints;
-      var json = JSON.parse(cookie);
-      var key = Object.keys(json)[0];
-      var val = Object.values(json)[0];
-
-      var hints = localStorage.hints;
-      if(hints) {
-        if(key) {
-          //console.log(30,{hints,json,key,val},JSON.parse(hints));
-          if(val === true) {
-            hints = JSON.parse(hints);
-            hints.includes(key) ? null : hints.push(key);
-            console.log({hints});
-            localStorage.hints = JSON.stringify(hints);
-            var lessons = JSON.parse(await ajax('/cdn/json/hints.json'))["developer"];
-            var index = lessons.indexOf(key); //alert(index);
-            //howto(lesson);
-          }
-          if(val === null) {
-            hints = JSON.parse(hints).filter(h => h !== key);
-            console.log({hints});
-            localStorage.hints = JSON.stringify(hints);
-          }
-          console.log({json});
-          //json = json.filter(json => json !== val);
-          //alert(JSON.stringify(json));
-        }
-      } else {
-        if(key) {
-          if(val === true) {
-            json = [];
-            json.push(key);
-            json = JSON.stringify(json);
-            localStorage.hints = json;
-          }
-          //json = json.filter(json => json !== val);
-        }
-      }
-
-
-      if(localStorage.hints && val === true) {
-        var json = await ajax('/cdn/json/hints.json');
-        var lessons = JSON.parse(json)["developer"];
-        var lesson = lessons[lessons.indexOf(key)+1];
-        if(lesson) {
-          howto(lesson);
-        }
-      }
-
-      elem.dataset.url ? elem.dataset.url.router() : null;
     }
 
     var elem = target.closest('[data-href]');
@@ -414,18 +348,6 @@ window.on['touch']["tap"] = async(event) => {
             window.parent.api.message['state'](window.parent.rout.e(href)) :
             href.router({href});
         }
-    }
-
-    var elem = target.closest('[data-href-parent]');
-    if(elem) {
-      var href = elem.dataset.hrefParent;
-      window.parent.String().router({href,cookie:elem.dataset.cookie});
-      self === top ? window.parent.String().router({href}) : href.router({href})
-    }
-
-    var elem = target.closest('[data-parent-href]');
-    if(elem) {
-        self === top ? null : elem.dataset.parentHref.router({href})
     }
 
     var elem = target.closest('[data-input]');
@@ -495,62 +417,6 @@ window.on['touch']["tap"] = async(event) => {
             if(ev.dataset.elem === "parent") { el = ev.parentNode; }
             if(ev.dataset.class) { $(el).toggleClass(ev.dataset.class); }
         }
-    }
-
-    var elem = target.closest('[data-audio]');
-    if(elem) { //alert(123);
-        if(elem.dataset.audio === "play") {
-            if(audio.isPlaying()) {
-                audio.pause();
-                document.body.removeAttribute('data-audio');
-            } else {
-                audio.play();
-                document.body.dataset.audio = "playing";
-            }
-        }
-    }
-
-    var elem = target.closest('[data-file]');
-    if(elem) {
-        console.log('data-file', elem, elem.find('input'));
-        var file = elem.find('input'); //console.log(file,elem.dataset.input);
-        if(file) {
-            file.dataset.elem = elem.dataset.file;
-            elem.dataset.accept ? file.accept = elem.dataset.accept : null;
-            elem.dataset.onload ? file.dataset.onload = elem.dataset.onload : null;
-            console.log('file',file);
-            file.click();
-        }
-    }
-
-    var ev = target.closest("[data-hide]");
-    if(ev) {
-      if(ev.dataset.hide === "next") {
-        byId(ev.dataset.hide).classList.add('hide');
-      } else {
-        byId(ev.dataset.hide).classList.add('hide');
-      }
-    }
-
-    var ev = target.closest("[data-hint]");
-    if(ev) {
-      ev.closest('hint').classList.add('hide');
-      byId(ev.dataset.hint).classList.remove('hide');
-    }
-
-    var elem = target.closest('[data-select]');
-    if (elem) { //alert(123);
-        var select = target.closest("[data-select]");
-        var selected = target.closest("[data-select] > *");
-        $(selected).toggleClass(select.dataset.select);
-    }
-
-    var elem = target.closest('[data-expand]');
-    if(elem) {
-       var ind = byId(elem.dataset.expand);
-       var chd = target.closest('ul > li');
-       $(chd).toggleClass('expand');
-       $(chd).siblings().removeClass('expand');
     }
 
     var elem = target.closest('[data-toggle]');

@@ -1,2 +1,5 @@
 .ico-star {background-size:contain;background-image: url('/cdn/png/star-outline.png');}
 .ico-star.starred {background-size:contain;background-image: url('/cdn/png/star-solid.png');}
+
+.ico-power.on {background-size:contain;background-image: url('/cdn/png/power-on.png');}
+.ico-power.off {background-size:contain;background-image: url('/cdn/png/power-off.png');}
