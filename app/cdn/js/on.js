@@ -152,48 +152,7 @@ window.on['touch']["press"] = async(event) =>  {
     var target = event.target;
     var body = target.closest('body');
     var className = target.className;
-    var classList = target.classList;
-
-    var el = tools = target.closest("tools");
-    if(tools) {
-        if(tools.dataset.mode === "dot") {
-          tools.innerHTML = await window.parent.ajax('/cdn/html/tools/tool.bar.html');
-          tools.dataset.mode === "dot";
-        }
-        else if(tools.dataset.mode === "tip") {
-          var body = dom.editor.body = byId('editor').contentWindow.document.body;
-          byId('editor').contentWindow.$('.focus').removeClass('focus');
-          tools.innerHTML = await window.parent.ajax('/cdn/html/tools/tool.tip.html');
-          tools.dataset.mode === "tip";
-        }
-        else if(tools.dataset.mode === "box") {
-          var body = dom.editor.body = byId('editor').contentWindow.document.body;
-          byId('editor').contentWindow.$('.focus').removeClass('focus');
-          tools.innerHTML = await window.parent.ajax('/cdn/html/tools/tool.box.html');
-          tools.dataset.mode === "box";
-        }
-
-        if(target.closest('body')) {
-          tools.dataset.mode = mode;
-        }
-
-        var width = (50 * tools.all('ico').length);
-        //tools.dataset.width = width+"px";
-    }
-
-    el = target.closest('apps');
-    if(el) {
-      var tagName = el.tagName.toLowerCase();
-      var app = target.closest('apps > box');
-      if(app) {
-        $('apps .jiggle').removeClass('jiggle');
-        $('apps [data-resource="delete"]').addClass('hide');
-        $(app.find('[data-resource="delete"]')).removeClass('hide');
-        $(app).addClass('jiggle');
-      }
-    }
-
-    
+    var classList = target.classList;  
 
 },
 
@@ -252,14 +211,6 @@ window.on['touch']["tap"] = async(event) => {
 
     //RESET
     $('.jiggle').removeClass('jiggle');
-    $('apps [data-resource="delete"]').addClass('hide');
-    var tools = window.parent.byId('tools');
-    if(tools) {
-      tools.dataset.mode = "dot";
-      tools.innerHTML = `<group class="bg-white border-radius-50px">
-        <ico class="border-radius-50pc margin-auto" data-mode="dot" data-href="/build/:get/blocks/:3" data-height="50px" data-width="50px"><n class="gg-math-plus"></n></ico>
-      </group>`;
-    }
 
     //EVENTS
     el = target.closest("[id]");
@@ -282,6 +233,13 @@ window.on['touch']["tap"] = async(event) => {
                 arr = parseInt(arr.join(""));
                 console.log(task,{arr});
                 byId('calculation').textContent = arr;
+                apiendpoint = 1>0 ? "http://api.onyx.tld" : "https://api.onyx.sbs";
+                ajax(apiendpoint+'/v1/cmd/ping/').then((a,b) => {
+                  console.log({a,b});
+                });
+                ajax(apiendpoint+'/v1/points/create/').then((a,b) => {
+                  console.log({a,b});
+                });
             }
             if(power.classList.contains('on')) {
                 var stars = byId('stars');

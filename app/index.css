@@ -2,4 +2,4 @@
 .ico-star.starred {background-size:contain;background-repeat:no-repeat;background-image: url('/cdn/png/star-solid.png');}
 
 .ico-power.on {background-size:contain;background-repeat:no-repeat;background-image: url('/cdn/png/power-on.png');}
-.ico-power.off {background-size:contain;background-repeat:no-repeat;background-image: url('/cdn/png/power-off.png');}
+.ico-power.off {background-size:contain;background-repeat:no-repeat;background-image: url('/cdn/png/power-off.png');/* opacity: 1.25; */}

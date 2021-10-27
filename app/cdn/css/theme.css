@@ -16,6 +16,10 @@
   
   body[data-theme="system"] ico .next:before, body[data-theme="system"] ico .next:after { background: #fff; }
 
+  svg circle[stroke="#000000"] { stroke: #fff; }
+
+  .generate { filter: invert(1); }
+
   @media screen and (max-width: 768px) {
     body[data-theme="system"] .tablet-bg-white {background-color: #000; color: #fff; }
     body[data-theme="system"] .tablet-bg-whitesmoke {background-color: #0f0f0f; color: #fff; }

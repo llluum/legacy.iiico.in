@@ -26,7 +26,21 @@ window.mvc.v = function(route) {
       }
 
     } else {
-        resolve(route);
+      ajax(api.endpoint+"/v1/points/read"+"?limit=54&orderBy=created DESC")
+        .then((d,data=JSON.parse(d)) => {
+          console.log("data",{data});
+          var rows = data.rows;
+          if(rows.length > 0) {            
+            var blocks = rout.er().find('blocks');
+            var p = 0; do {
+              var row = rows[p];
+              var html = `<block><section><box class="line-height-50px"><section><text class="bolder">`+row.type+row.unit+``+row.id+`</text><text class="padding-x-10px">`+row.created+`</text></section></box></block>`;
+              blocks.insertAdjacentHTML('beforeend',html);
+              p++;
+            } while(p < rows.length);           
+          }
+        });
+      resolve(route);
     }
 
   });

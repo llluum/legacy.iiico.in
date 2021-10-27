@@ -3,7 +3,7 @@
     <meta name="description" content="Build web applications from any device.">
     <meta name="theme-color" content="#bbb">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
-    <title>Miner | Onyx</title>
+    <title>Points | Onyx</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png" href="/cdn/png/android-chrome-192x192.png">
     <link rel="apple-touch-startup-image" href="/cdn/png/android-chrome-512x512.png">
     <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
@@ -14,44 +14,50 @@
     <script id="script-load" src="/cdn/js/load.js"></script>
 </head>
 
-<body data-theme="system">
+<body class="bg-gray" data-theme="system">
 
     <header class="bg-gray fixed height-50px width-100pc z-index-3">
         <section class="flex height-50px width-100pc">
             <box class="flex margin-right" data-href="/">
                 <section>
                     <ico class="bg-black border-radius-50pc height-30px margin-10px width-30px"><n class="gg-dollar"></n></ico>
-                    <text class="bolder uppercase" data-page="/">Miner</text>
+                    <text class="bolder uppercase" data-page="/">Points</text>
                     <text class="bolder uppercase" data-page="/mine/">Mine</text>
                     <text class="bolder uppercase" data-page="/earn/">Earn</text>
                     <text class="bolder uppercase" data-page="/config/">Config</text>
                 </section>
             </box>
-            <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/mine/"><n class="gg-server"></n></user> 
-            <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/earn/"><n class="gg-credit-card"></n></user> 
+            <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/earn/"><n class="gg-credit-card"></n></user>
+            <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/mine/"><n class="gg-server"></n></user>  
             <user class="align-center flex height-30px justify-center margin-10px width-30px" data-href="/config/"><n class="gg-options"></n></user> 
         </section>
     </header>
 
-    <main data-height="100vh" data-width="100%">
-        <page data-page="/mine/" data-path="/mine/"><!--
+    <main data-height="100vh" data-width="100%"><!--
+        --><page data-page="/" data-path="/"><!--
+            --><blocks></blocks><!--
+        --></page><!--
+        --><page data-page="/mine/" data-path="/mine/"><!--
             --><header class="bg-gray height-50px mobile-margin-x-auto padding-top-50px"><!--
                 --><section class="flex height-50px invert" id="stars"><!--
-                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star starred" data-height="100%" data-width="100%"></n></ico><!--
-                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
-                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
-                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
-                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
-                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
-                    --><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    -><ico class="width-50px height-50px margin-x-10px"><n class="ico-star starred" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-40px height-50px margin-x-0px"><n class="ico-star starred" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-40px height-50px margin-x-0px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-40px height-50px margin-x-0px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-40px height-50px margin-x-0px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    --><ico class="width-40px height-50px margin-x-0px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
+                    -><ico class="width-50px height-50px margin-x-10px"><n class="ico-star" data-height="100%" data-width="100%"></n></ico><!--
                 --></section><!--
-                --><section class="margin-top-50px"><!--
-                    --><div class="generate" id="miner-start"><!--
-                        --><ico class="width-50px height-50px margin-x-10px"><n class="ico-power off" data-height="100%" data-width="100%"></n></ico><!--
-                    --></div><!--
-                --></section><!--
-                --><section><!--
-                    --><div id="calculation"><text>000000000</text></div><!--
+                --><section class="margin-top-50px relative"><!--
+                    --><div class="chart contrast-ring relative"><!--
+                        --><div class="absolute bottom-30px generate height-50px left-0 margin-auto right-0 top-0 width-50px z-index-5" id="miner-start"><ico class="width-50px height-50px"><n class="ico-power off" data-height="100%" data-width="100%"></n></ico></div><!--
+                        --><svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(-90deg)">
+                          <circle class="circle-chart__background" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                          <circle class="circle-chart__circle" stroke="#000000" stroke-width="1" stroke-dasharray="-40,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                          <circle class="circle-chart__circle" stroke="#32cd32" stroke-width="1" stroke-dasharray="60,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                        </svg><!--               
+                        --><div class="absolute bottom-50px left-0 margin-auto right-0 text-align-center width-100px" id="calculation"><text>000000000</text></div><!--   
+                      --></div><!--  
                 --></section><!--
             --></header><!--
             --><footer><!--
@@ -80,6 +86,7 @@
         {link: "/cdn/css/theme.css"}
     ]);
     Scripts([
+        {link: "/cdn/js/api.js"},
         {link: "/cdn/js/auth.js"},
         {link: "/cdn/js/crypto.js"},
         {link: "/cdn/js/mvc.js"},
