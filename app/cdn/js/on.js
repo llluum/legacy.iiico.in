@@ -222,7 +222,7 @@ window.on['touch']["tap"] = async(event) => {
                 var stars = byId('stars');
                 var starred = stars.all('.starred');
                 var task = Crypto.uid.create(1)[0];
-                var uid = Crypto.uid.create(starred.length+2);
+                var uid = Crypto.uid.create(starred.length+3);
                 var u = 0, arr = []; do {
                     var num = uid[u];
                     var str = num.toString();
